@@ -1,10 +1,10 @@
-import { InvalidArgumentError } from "./InvalidArgumentError";
+import { InvalidArgumentError } from './InvalidArgumentError';
 
-type Primitives = String | string | number | Boolean | boolean | Date;
+type Primitives = String | string | number | Boolean | boolean | Date | unknown;
 
 export abstract class ValueObject<T extends Primitives> {
   readonly value: T;
-  
+
   constructor(value: T) {
     this.value = value;
     this.ensureValueIsDefined(value);
@@ -19,8 +19,8 @@ export abstract class ValueObject<T extends Primitives> {
   equals(other: ValueObject<T>): boolean {
     return other.constructor.name === this.constructor.name && other.value === this.value;
   }
-    
-  toString(): string  {
-      return this.value.toString();
+
+  toString(): string {
+    return String(this.value).toString();
   }
 }
