@@ -2,7 +2,7 @@ import { Nullable } from '../../../../Shared/domain/Nullable';
 import { MongoRepository } from '../../../../Shared/infrasestructure/persistence/mongo/MongoRepository';
 import { Course } from '../../domain/Course';
 import { CourseRepository } from '../../domain/CourseRepository';
-import { CourseId } from '../../domain/Courses/CourseId';
+import { CourseId } from '../../../Shared/domain/Courses/CourseId';
 
 export interface CourseDocument {
   _id: string;

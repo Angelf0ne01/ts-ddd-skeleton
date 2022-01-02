@@ -1,7 +1,7 @@
 import { Course } from '../domain/Course';
 import { CourseRepository } from '../domain/CourseRepository';
 import { CourseDuration } from '../domain/Courses/CourseDuration';
-import { CourseId } from '../domain/Courses/CourseId';
+import { CourseId } from '../../Shared/domain/Courses/CourseId';
 import { CourseName } from '../domain/Courses/CourseName';
 import { CourseCreatorRequest } from './CourseCreatorRequest';
 
