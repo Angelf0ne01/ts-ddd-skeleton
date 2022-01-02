@@ -7,7 +7,7 @@ export class Course extends AggregateRoot {
   readonly name: CourseName;
   readonly duration: CourseDuration;
 
-  constructor({ id, name, duration }: { id: CourseId; name: CourseName; duration: CourseDuration }) {
+  constructor(id: CourseId, name: CourseName, duration: CourseDuration) {
     super();
     this.id = id;
     this.name = name;
@@ -15,11 +15,7 @@ export class Course extends AggregateRoot {
   }
 
   static fromPrimitives({ id, name, duration }: { id: string; name: string; duration: string }): Course {
-    return new Course({
-      id: new CourseId(id),
-      name: new CourseName(name),
-      duration: new CourseDuration(duration)
-    });
+    return new Course(new CourseId(id), new CourseName(name), new CourseDuration(duration));
   }
 
   toPrimitives(): any {
