@@ -21,10 +21,10 @@ describe('CourseCreator', () => {
   });
 
   it('should throw error if course name length is exceeded', async () => {
-    expect(async () => {
+    expect(() => {
       const request = CreateCourseRequestMother.invalidRequest();
       const course = CourseMother.fromRequest(request);
-      await creator.run(request);
+      creator.run(request);
       repository.assertLastSavedCourseIs(course);
     }).toThrow(CourseNameLengthExceeded);
   });
