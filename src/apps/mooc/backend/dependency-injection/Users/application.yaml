@@ -1,0 +1,19 @@
+services:
+  Mooc.MongoConfig:
+    factory:
+      class: '../../../../../Contexts/Mooc/Shared/infraestructure/persistence/mongo/MongoConfigFactory'
+      method: createConfig
+
+  Mooc.ConnectionManager:
+    factory:
+      class: '../../../../../Contexts/Shared/infrasestructure/persistence/mongo/MongoClientFactory'
+      method: 'createClient'
+    arguments: ['mooc', '@Mooc.MongoConfig']
+
+  Mooc.Users.application.UserCreator:
+    class: ../../../../..//Contexts/Mooc/Users/application/UserCreator
+    arguments: ['@Mooc.Users.domain.UserRepository']
+
+  Mooc.Users.domain.UserRepository:
+    class: ../../../../../Contexts/Mooc/Users/infraestructure/persistence/FileUserRepository
+    arguments: ['']
